@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import LoginForm from './LoginForm'
 import { Redirect } from 'react-router-dom'
+import { login } from '../actions/users'
 
 class LoginPage extends PureComponent {
 
@@ -20,7 +21,7 @@ class LoginPage extends PureComponent {
         <h1>Login</h1>
 
         <LoginForm onSubmit={this.handleSubmit} />
-        
+
       </div>
     )
   }
