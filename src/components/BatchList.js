@@ -27,7 +27,7 @@ class BatchList extends PureComponent {
           batches.map((batch, index) => (
             <div className="batch">
               <h1>Batch No. {batch.id}</h1>
-              <p>{batch.students.length} students</p>
+              <p>{batch.students.length || 0 } students</p>
               <p>Start Date: {batch.startDate}</p>
               <p>End Date: {batch.endDate}</p>
             </div>
