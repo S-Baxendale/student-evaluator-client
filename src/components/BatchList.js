@@ -4,9 +4,13 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 // Import fetchAllBatches actions
+import Batch from './Batch'
 
 class BatchList extends PureComponent {
 
+  componentWillMount(props) {
+    this.props.fetchAllBatches()
+  }
 
   render() {
     const { batches } = this.props
@@ -16,10 +20,9 @@ class BatchList extends PureComponent {
 
         {
           batches.map(batch => {
-            <Batch />
+            <Batch batch={batch} />
           })
         }
-
 
       </div>
     )
