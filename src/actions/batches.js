@@ -9,7 +9,7 @@ export const fetchAllBatches = () => (dispatch) => {
     .get(`${baseUrl}/batches`)
     .then(response => dispatch({
       type: FETCHED_ALL_BATCHES,
-      payload: response.body.batches
+      payload: response.body
     }))
     .catch(err => alert(err))
 }

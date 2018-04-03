@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-// Import fetchAllBatches actions
-import Batch from './Batch'
+import { fetchAllBatches } from '../actions/batches'
+import BatchForm from './BatchForm'
 
 class BatchList extends PureComponent {
 
@@ -19,10 +19,20 @@ class BatchList extends PureComponent {
         <h1>All Batches</h1>
 
         {
-          batches.map(batch => {
-            <Batch batch={batch} />
-          })
+          batches.map((batch, index) => (
+            <div className="batch">
+              <h1>Batch No. {batch.id}</h1>
+              <p>{batch.students.length} students</p>
+              <p>Start Date: {batch.startDate}</p>
+              <p>End Date: {batch.endDate}</p>
+            </div>
+
+          ))
         }
+
+        <h2>Create New batch</h2>
+
+        <BatchForm />
 
       </div>
     )
@@ -37,4 +47,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(BatchList)
+export default connect(mapStateToProps, { fetchAllBatches })(BatchList)
