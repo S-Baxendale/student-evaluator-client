@@ -1,5 +1,8 @@
 import batches from './batches'
+import login from './login'
 
 export default {
-  batches
+  batches,
+  currentUser: login
+
 }
