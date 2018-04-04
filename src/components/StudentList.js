@@ -92,7 +92,7 @@ class StudentList extends PureComponent {
                     student.evaluations[0].color : 'grey'}
                  />
 
-                 <Link to={ `/students/${student.id}` } >View Student</Link>
+                 <Link to={ `/students/${student.id}` } className="link">View Student</Link>
                </div>
             ))
           }
