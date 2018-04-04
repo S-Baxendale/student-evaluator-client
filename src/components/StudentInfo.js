@@ -6,7 +6,7 @@ import EvaluationHistory from './EvaluationHistory'
 import NewEvaluation from './NewEvaluation'
 
 import { fetchStudent } from '../actions/students'
-
+import { createEvaluation } from '../actions/evaluations'
 
 class StudentInfo extends PureComponent {
 
@@ -14,9 +14,12 @@ class StudentInfo extends PureComponent {
     this.props.fetchStudent(this.props.match.params.id)
   }
 
+  createEvaluation = (studentId, evaluation) => {
+    this.props.createEvaluation(this.props.match.params.id, evaluation)
+  }
 
   render() {
-    const { student } = this.props
+    const { student, currentUser } = this.props
     if (!student) return null
     return(
       <div>
@@ -30,7 +33,7 @@ class StudentInfo extends PureComponent {
         <button>Update Student Information</button>
         <button>Remove Student</button>
 
-        <NewEvaluation />
+        <NewEvaluation onSubmit={this.createEvaluation}/>
       </div>
     )
   }
@@ -43,4 +46,4 @@ const mapStateToProps = (state, props) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchStudent })(StudentInfo)
+export default connect(mapStateToProps, { fetchStudent, createEvaluation })(StudentInfo)

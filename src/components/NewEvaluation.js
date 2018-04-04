@@ -23,11 +23,16 @@ class NewEvaluation extends PureComponent {
 
         <h2>Add an Evaluation</h2>
 
-        <input type="date" name="date" />
+        <input type="date" name="date" onChange={ this.handleChange }/>
 
-        <input type="radio" name="color" value="green" />
-        <input type="radio" name="color" value="yellow" />
-        <input type="radio" name="color" value="red" />
+        <label htmlFor="green">Green </label>
+        <input type="radio" name="color" value={"green"} onChange={ this.handleChange }/>
+
+        <label htmlFor="yellow">Yellow </label>
+        <input type="radio" name="color" value="yellow" onChange={ this.handleChange }/>
+
+        <label htmlFor="red">Red</label>
+        <input type="radio" name="color" value="red" onChange={ this.handleChange }/>
 
         <div className="input">
           <label htmlFor="remark">Remark: </label>
