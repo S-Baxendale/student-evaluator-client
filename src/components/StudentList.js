@@ -7,6 +7,7 @@ import Student from './Student'
 import '../styles/Student.css'
 
 class StudentList extends PureComponent {
+
   static propTypes = {
     batch: PropTypes.shape({
       id: PropTypes.number.isrequired,
@@ -16,31 +17,43 @@ class StudentList extends PureComponent {
     }).isRequired
   }
 
+
   componentDidMount(props) {
-    this.props.fetchBatch(this.props.match.params.id)
+    this.setState({batch: this.props.fetchBatch(this.props.match.params.id)})
+
   }
+
 
   render() {
 
     const { batch } = this.props
     if(!batch) return null
+
+
     return(
       <div>
         <h1>Batch #{batch.id}</h1>
 
+        <h3>Ask a question to a random student!</h3>
+
+        <p> Percentage Bar</p>
         <div className="flex-container">
 
           {
             batch.students.map((student, index) => (
+
               <Student
                 className="flex"
                 key={index}
                 firstName={student.firstName}
                 lastName={student.lastName}
                 photo={student.photo}
+                evaluation={student.evaluations && student.evaluations.length > 0 ?
+                  student.evaluations[0].color : 'black'}
                />
             ))
           }
+
 
         </div>
 
