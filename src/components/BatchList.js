@@ -33,7 +33,8 @@ class BatchList extends PureComponent {
           batches.map((batch, index) => (
             <div className="batch" key={index}>
               <h1>Batch No. {batch.id}</h1>
-              <p>{batch.students.length || 0 } students</p>
+              <p>{batch.students ?
+                batch.students.length : 0 } students</p>
               <p>Start Date: {batch.startDate}</p>
               <p>End Date: {batch.endDate}</p>
             </div>
@@ -44,7 +45,7 @@ class BatchList extends PureComponent {
         <h2>Create New batch</h2>
 
         <BatchForm onSubmit={this.createBatch} />
-        
+
       </div>
 
     )

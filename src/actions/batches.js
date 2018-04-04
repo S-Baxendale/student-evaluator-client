@@ -21,11 +21,11 @@ export const fetchAllBatches = () => (dispatch, getState) => {
 }
 
 export const createBatch = (batch) => (dispatch, getState) => {
-  const state = getState()
-  const jwt = state.currentUser.jwt
+  //const state = getState()
+  //const jwt = state.currentUser.jwt
   request
     .post(`${baseUrl}/batches`)
-    .set('Authorization', `Bearer ${jwt}`)
+  //  .set('Authorization', `Bearer ${jwt}`)
     .send(batch)
     .then(response => dispatch({
       type: CREATED_BATCH,

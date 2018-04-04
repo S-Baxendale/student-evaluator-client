@@ -48,8 +48,9 @@ class StudentList extends PureComponent {
                 firstName={student.firstName}
                 lastName={student.lastName}
                 photo={student.photo}
-                evaluation={student.evaluations && student.evaluations.length > 0 ?
-                  student.evaluations[0].color : 'black'}
+                color={student.evaluations && student.evaluations.length > 0 ?
+                  student.evaluations[0].color : 'grey'}
+
                />
             ))
           }
