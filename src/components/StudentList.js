@@ -22,11 +22,11 @@ class StudentList extends PureComponent {
     this.props.fetchBatch(this.props.match.params.id)
   }
 
-  percentageYellow(students) {
+  percentageColor(students, color) {
     const evaluated = students.filter(student => student.evaluations && student.evaluations.length > 0)
-    const yellow = evaluated.filter(student => student.evaluations[0].color === 'yellow')
-    const percentageYellow = (evaluated.length / yellow.length) * 100
-    return percentageYellow
+    const yellow = evaluated.filter(student => student.evaluations[0].color === color)
+    const percentageYellow = (yellow.length / evaluated.length) * 100
+    return Math.round(percentageYellow)
   }
 
   render() {
@@ -38,7 +38,9 @@ class StudentList extends PureComponent {
       <div>
         <h1>Batch #{batch.id}</h1>
 
-        <p>Percentage yellow: {this.percentageYellow(batch.students)}</p>
+        <p>Percentage yellow: {this.percentageColor(batch.students, "yellow")}</p>
+        <p>Percentage green: {this.percentageColor(batch.students, "green")}</p>
+        <p>Percentage red: {this.percentageColor(batch.students, "red")}</p>
 
         <div className="flex-container">
           {
