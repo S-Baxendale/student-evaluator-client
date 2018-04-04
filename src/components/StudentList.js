@@ -54,9 +54,24 @@ class StudentList extends PureComponent {
         <h3>Evaluation Color Distribution</h3>
 
         <div>
-          <div style={{width : this.percentageColor(batch.students, "green")}} className="percentage-green"></div>
-          <div style={{width : this.percentageColor(batch.students, "yellow")}} className="percentage-yellow"></div>
-          <div style={{width : this.percentageColor(batch.students, "red")}} className="percentage-red"></div>
+          <div
+            style={{width : this.percentageColor(batch.students, "green")}}
+            className="percentage-green"
+          >
+            {this.percentageColor(batch.students, "green")}
+          </div>
+          <div
+            style={{width : this.percentageColor(batch.students, "yellow")}}
+            className="percentage-yellow"
+          >
+            {this.percentageColor(batch.students, "yellow")}
+          </div>
+          <div
+            style={{width : this.percentageColor(batch.students, "red")}}
+            className="percentage-red"
+          >
+            {this.percentageColor(batch.students, "red")}
+          </div>
         </div>
 
         <div className="flex-container">
