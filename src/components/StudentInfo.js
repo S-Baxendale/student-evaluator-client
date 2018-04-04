@@ -30,7 +30,7 @@ class StudentInfo extends PureComponent {
         <button>Update Student Information</button>
         <button>Remove Student</button>
 
-
+        <NewEvaluation />
       </div>
     )
   }
