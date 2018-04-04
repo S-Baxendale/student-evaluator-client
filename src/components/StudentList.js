@@ -33,7 +33,7 @@ class StudentList extends PureComponent {
   percentageColor(students, color) {
     const evaluated = students.filter(student => student.evaluations && student.evaluations.length > 0)
     const yellow = evaluated.filter(student => student.evaluations[0].color === color)
-    const percentageColor = Math.round((yellow.length / evaluated.length) * 100)
+    const percentageColor = Math.round((yellow.length / evaluated.length) * 100) + '%'
     return percentageColor
   }
 
@@ -51,12 +51,13 @@ class StudentList extends PureComponent {
 
         <StudentForm onSubmit={this.createStudent} />
 
-        <div style={{width : this.percentageColor(batch.students, "green")}} className="percentage-green"></div>
-        <div style={{width : this.percentageColor(batch.students, "yellow")}} className="percentage-yellow"></div>
-        <div style={{width : this.percentageColor(batch.students, "red")}} className="percentage-red"></div>
+        <h3>Evaluation Color Distribution</h3>
 
-
-
+        <div>
+          <div style={{width : this.percentageColor(batch.students, "green")}} className="percentage-green"></div>
+          <div style={{width : this.percentageColor(batch.students, "yellow")}} className="percentage-yellow"></div>
+          <div style={{width : this.percentageColor(batch.students, "red")}} className="percentage-red"></div>
+        </div>
 
         <div className="flex-container">
           {
