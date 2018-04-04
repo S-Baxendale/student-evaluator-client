@@ -53,7 +53,7 @@ class StudentList extends PureComponent {
 
         <h3>Evaluation Color Distribution</h3>
 
-        <div>
+        <div className="percentage-bar">
           <div
             style={{width : this.percentageColor(batch.students, "green")}}
             className="percentage-green"

@@ -27,22 +27,29 @@ img {
   background-color: red;
 }
 
+.percentage-bar {
+  margin-bottom: 50px;
+  font-weight: bold;
 
+}
 
 .percentage-green {
-  height: 20px;
+  height: 40px;
   background-color: green;
   display: inline-block;
+  padding-top: 20px;
 }
 
 .percentage-yellow {
-  height: 20px;
+  height: 40px;
   background-color: yellow;
   display: inline-block;
+  padding-top: 20px;
 }
 
 .percentage-red {
-  height: 20px;
+  height: 40px;
   background-color: red;
   display: inline-block;
+  padding-top: 20px;
 }
