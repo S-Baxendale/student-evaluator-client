@@ -1,0 +1,10 @@
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.batch {
+  flex: 1;
+  width: 200px;
+  margin: 30px;
+}

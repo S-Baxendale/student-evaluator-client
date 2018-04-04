@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom'
 
 import { fetchAllBatches, createBatch } from '../actions/batches'
 import BatchForm from './BatchForm'
+import '../styles/BatchList.css'
 
 class BatchList extends PureComponent {
 
@@ -24,30 +25,35 @@ class BatchList extends PureComponent {
     return(
       <div>
 
-        <h1>All Batches</h1>
+      <h2>Create New batch</h2>
 
-        {
-          batches
-            .sort(function(a, b) {
-               return  (b.id - a.id);
-             })
-            .map((batch, index) => (
+      <BatchForm onSubmit={this.createBatch} />
 
-              <div className="batch" key={index}>
-                <h1>Batch No. {batch.id}</h1>
-                <p>{batch.students ?
-                  batch.students.length : 0 } students</p>
-                <p>Start Date: {batch.startDate}</p>
-                <p>End Date: {batch.endDate}</p>
-                <Link to={ `/batches/${batch.id}` } >View Batch</Link>
-              </div>
 
-          ))
-        }
+        <h2>All Batches</h2>
 
-        <h2>Create New batch</h2>
+        <div className="flex-container">
+          {
+            batches
+              .sort(function(a, b) {
+                 return  (b.id - a.id);
+               })
+              .map((batch, index) => (
 
-        <BatchForm onSubmit={this.createBatch} />
+                <div className="batch" key={index}>
+                  <h1>Batch No. {batch.id}</h1>
+                  <p>{batch.students ?
+                    batch.students.length : 0 } students</p>
+                  <p>Start Date: {batch.startDate}</p>
+                  <p>End Date: {batch.endDate}</p>
+                  <Link to={ `/batches/${batch.id}` } >View Batch</Link>
+                </div>
+
+            ))
+          }
+        </div>
+
+
 
       </div>
 
