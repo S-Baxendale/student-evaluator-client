@@ -17,7 +17,7 @@ export const createStudent = (student, batchId) => (dispatch, getState) => {
 
 export const fetchStudent = (studentId) => (dispatch) => {
   request
-      .get(`${baseUrl}/studentss/${studentId}`)
+      .get(`${baseUrl}/students/${studentId}`)
       .then(response => dispatch({
         type: FETCHED_STUDENT,
         payload: response.body

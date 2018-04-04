@@ -2,11 +2,19 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
+import { fetchStudent } from '../actions/students'
+
 
 class StudentInfo extends PureComponent {
 
+  componentWillMount(props) {
+    this.props.fetchStudent(this.props.match.params.id)
+  }
+
+
   render() {
     const { student } = this.props
+    if (!student) return null
     return(
       <div>
 
@@ -15,17 +23,20 @@ class StudentInfo extends PureComponent {
         <img src={ student.photo } alt="profile"/>
         <p>First Name: {student.firstName}</p>
         <p>Last Name: { student.lastName }</p>
-        <p>Batch #{this.props.batch.id}</p>
+
+        <button>Update Student Information</button>
+        <button>Remove Student</button>
+
 
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
   return {
     student: state.student
   }
 }
 
-export default connect(mapStateToProps)(StudentInfo)
+export default connect(mapStateToProps, { fetchStudent })(StudentInfo)
