@@ -9,10 +9,10 @@ class Student extends PureComponent {
     //const {evaluation} = this.props
 
     return(
-      <div className={this.props.color}>
+      <div >
         <h3>{this.props.firstName} {this.props.lastName}</h3>
         <img src={this.props.photo} alt="Profile"/>
-       <p> Last evaluation: {this.props.evaluation}</p>
+        <p>Last evaluation: {this.props.color}</p>
       </div>
     )
   }

@@ -1,31 +1,25 @@
 img {
-  max-width: 200px;
+  max-width: 100px;
+  margin: auto;
 }
 
-.flex-container {
+.student-list {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
 
 }
 
-.flex {
+.student {
   flex: 1;
-  border: 1px solid black;
-}
-
-.yellow {
-  background-color: yellow;
-}
-
-.grey {
-  background-color: lightgrey;
+  border: 2px solid grey;
+  width: 500px;
+  height: 300px;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
 }
 
 
-
-.red {
-  background-color: red;
-}
 
 .percentage-bar {
   margin-bottom: 50px;

@@ -74,16 +74,20 @@ class StudentList extends PureComponent {
           </div>
         </div>
 
-        <div className="flex-container">
+        <div className="student-list">
           {
             batch.students.map((student, index) => (
-              <div className="flex">
+              <div className="student">
                 <Student
 
                   key={index}
                   firstName={student.firstName}
                   lastName={student.lastName}
-                  photo={student.photo}
+                  photo={
+                    student.photo.indexOf("jpg") >= 0 ?
+                      student.photo : 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
+                    }
+
                   color={student.evaluations && student.evaluations.length > 0 ?
                     student.evaluations[0].color : 'grey'}
                  />
