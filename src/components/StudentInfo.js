@@ -38,7 +38,8 @@ class StudentInfo extends PureComponent {
 
 const mapStateToProps = (state, props) => {
   return {
-    student: state.student
+    student: state.student,
+    currentUser: state.currentUser
   }
 }
 

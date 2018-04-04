@@ -19,8 +19,6 @@ class NewEvaluation extends PureComponent {
     const initialValues = this.props.initialValues || {}
     return(
 
-
-
       <form onSubmit={this.handleSubmit}>
 
         <h2>Add an Evaluation</h2>
