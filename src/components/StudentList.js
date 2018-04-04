@@ -18,27 +18,29 @@ class StudentList extends PureComponent {
   }
 
 
-  componentDidMount(props) {
-    this.setState({batch: this.props.fetchBatch(this.props.match.params.id)})
-
+  componentWillMount(props) {
+    this.props.fetchBatch(this.props.match.params.id)
   }
 
+  percentageYellow(students) {
+    const evaluated = students.filter(student => student.evaluations && student.evaluations.length > 0)
+    const yellow = evaluated.filter(student => student.evaluations[0].color === 'yellow')
+    const percentageYellow = (evaluated.length / yellow.length) * 100
+    return percentageYellow
+  }
 
   render() {
 
     const { batch } = this.props
     if(!batch) return null
 
-
     return(
       <div>
         <h1>Batch #{batch.id}</h1>
 
-        <h3>Ask a question to a random student!</h3>
+        <p>Percentage yellow: {this.percentageYellow(batch.students)}</p>
 
-        <p> Percentage Bar</p>
         <div className="flex-container">
-
           {
             batch.students.map((student, index) => (
 
@@ -50,14 +52,10 @@ class StudentList extends PureComponent {
                 photo={student.photo}
                 color={student.evaluations && student.evaluations.length > 0 ?
                   student.evaluations[0].color : 'grey'}
-
                />
             ))
           }
-
-
         </div>
-
       </div>
     )
   }
