@@ -3,6 +3,7 @@ import * as request from 'superagent'
 const baseUrl = 'http://localhost:4008'
 
 export const CREATED_STUDENT = 'CREATED_STUDENT'
+export const FETCHED_STUDENT = 'FETCHED_STUDENT'
 
 export const createStudent = (student, batchId) => (dispatch, getState) => {
   request
@@ -13,3 +14,13 @@ export const createStudent = (student, batchId) => (dispatch, getState) => {
       payload: response.body
     }))
 }
+
+export const fetchStudent = (studentId) => (dispatch) => {
+  request
+      .get(`${baseUrl}/studentss/${studentId}`)
+      .then(response => dispatch({
+        type: FETCHED_STUDENT,
+        payload: response.body
+      }))
+      .catch(err => alert(err))
+  }
