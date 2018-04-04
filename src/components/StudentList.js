@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fetchBatch } from '../actions/batches'
+import { createStudent } from '../actions/students'
 
 import Student from './Student'
 import StudentForm from './StudentForm'
@@ -22,8 +23,8 @@ class StudentList extends PureComponent {
     this.props.fetchBatch(this.props.match.params.id)
   }
 
-  createStudent = (student) => {
-    this.props.createStudent(student)
+  createStudent = (student, batchId) => {
+    this.props.createStudent(student, this.props.match.params.id)
   }
 
   percentageColor(students, color) {
@@ -80,4 +81,4 @@ const mapStateToProps = (state, props) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchBatch })(StudentList)
+export default connect(mapStateToProps, { fetchBatch, createStudent })(StudentList)
