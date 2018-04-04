@@ -27,7 +27,11 @@ class BatchList extends PureComponent {
         <h1>All Batches</h1>
 
         {
-          batches.map((batch, index) => (
+          batches
+            .sort(function(a, b) {
+               return  (b.id - a.id);
+             })
+            .map((batch, index) => (
 
               <div className="batch" key={index}>
                 <h1>Batch No. {batch.id}</h1>

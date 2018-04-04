@@ -36,6 +36,8 @@ class StudentInfo extends PureComponent {
         <button>Update Student Information</button>
         <button>Remove Student</button>
 
+        <EvaluationHistory student={student}/>
+
         <NewEvaluation onSubmit={this.createEvaluation}/>
       </div>
     )

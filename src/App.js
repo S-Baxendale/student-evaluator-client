@@ -14,7 +14,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <h1>Student Evaluator</h1>
-          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/login" component={ LoginPage } />
           <Route exact path="/batches" component={ BatchList } />
           <Route exact path="/batches/:id" component={ StudentList } />
           <Route exact path="/students/:id" component={ StudentInfo } />
