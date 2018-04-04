@@ -6,7 +6,7 @@ class PercentageBar extends PureComponent {
 
   render() {
     return(
-      <div className={`${this.props.color}-block`} >
+      <div className="percentagebar">
       </div>
     )
   }

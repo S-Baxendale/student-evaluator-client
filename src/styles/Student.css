@@ -26,3 +26,23 @@ img {
 .red {
   background-color: red;
 }
+
+
+
+.percentage-green {
+  height: 20px;
+  background-color: green;
+  display: inline-block;
+}
+
+.percentage-yellow {
+  height: 20px;
+  background-color: yellow;
+  display: inline-block;
+}
+
+.percentage-red {
+  height: 20px;
+  background-color: red;
+  display: inline-block;
+}

@@ -33,8 +33,8 @@ class StudentList extends PureComponent {
   percentageColor(students, color) {
     const evaluated = students.filter(student => student.evaluations && student.evaluations.length > 0)
     const yellow = evaluated.filter(student => student.evaluations[0].color === color)
-    const percentageYellow = (yellow.length / evaluated.length) * 100
-    return Math.round(percentageYellow)
+    const percentageColor = Math.round((yellow.length / evaluated.length) * 100)
+    return percentageColor
   }
 
 
@@ -47,11 +47,16 @@ class StudentList extends PureComponent {
       <div>
         <h1>Batch #{batch.id}</h1>
 
-        <p>Percentage yellow: {this.percentageColor(batch.students, "yellow")}</p>
-        <p>Percentage green: {this.percentageColor(batch.students, "green")}</p>
-        <p>Percentage red: {this.percentageColor(batch.students, "red")}</p>
+        <h2>Add a student to Batch #{batch.id}</h2>
 
-        <button>Evaluate Random Student</button>
+        <StudentForm onSubmit={this.createStudent} />
+
+        <div style={{width : this.percentageColor(batch.students, "green")}} className="percentage-green"></div>
+        <div style={{width : this.percentageColor(batch.students, "yellow")}} className="percentage-yellow"></div>
+        <div style={{width : this.percentageColor(batch.students, "red")}} className="percentage-red"></div>
+
+
+
 
         <div className="flex-container">
           {
@@ -72,10 +77,6 @@ class StudentList extends PureComponent {
             ))
           }
         </div>
-
-        <h2>Add a student to Batch #{batch.id}</h2>
-
-        <StudentForm onSubmit={this.createStudent} />
 
         <Link to={ `/batches/` } >Back to List of Batches</Link>
 
