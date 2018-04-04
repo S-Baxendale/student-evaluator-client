@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { fetchBatch } from '../actions/batches'
 import { createStudent } from '../actions/students'
 
@@ -48,6 +49,8 @@ class StudentList extends PureComponent {
         <p>Percentage green: {this.percentageColor(batch.students, "green")}</p>
         <p>Percentage red: {this.percentageColor(batch.students, "red")}</p>
 
+        <button>Evaluate Random Student</button>
+
         <div className="flex-container">
           {
             batch.students.map((student, index) => (
@@ -68,6 +71,8 @@ class StudentList extends PureComponent {
         <h2>Add a student to Batch #{batch.id}</h2>
 
         <StudentForm onSubmit={this.createStudent} />
+
+        <Link to={ `/batches/` } >Back to List of Batches</Link>
 
       </div>
     )
