@@ -1,5 +1,5 @@
 import React, { PureComponent} from 'react'
-
+import '../styles/BatchForm.css'
 
 class BatchForm extends PureComponent {
   state={}
@@ -20,9 +20,9 @@ class BatchForm extends PureComponent {
   render() {
     const initialValues = this.props.initialValues || {}
     return(
-      <form onSubmit={this.handleSubmit}>
-        <div >
-          <label htmlFor="id">Batch No.</label>
+      <form onSubmit={this.handleSubmit} >
+        <div className="input">
+          <label htmlFor="id" className="label">Batch No.</label>
           <input
             name="id"
             id="id"
@@ -32,7 +32,7 @@ class BatchForm extends PureComponent {
         </div>
 
         <div className="input">
-          <label htmlFor="startDate">Start Date</label>
+          <label htmlFor="startDate" className="label">Start Date</label>
           <input
             name="startDate"
             id="startDate"
@@ -42,7 +42,7 @@ class BatchForm extends PureComponent {
         </div>
 
         <div className="input">
-        <label htmlFor="endDate">End Date</label>
+        <label htmlFor="endDate" className="label">End Date</label>
         <input
           name="endDate"
           id="endDate"
