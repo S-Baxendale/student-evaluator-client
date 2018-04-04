@@ -5,9 +5,7 @@ export default function ( state = null, action ) {
     case USER_LOGIN_SUCCESS:
       return action.payload
     case USER_LOGIN_FAILED:
-      return {
-        error: action.payload
-      }
+      return null
     default:
       return state
   }

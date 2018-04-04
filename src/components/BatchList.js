@@ -2,13 +2,14 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 import { fetchAllBatches, createBatch } from '../actions/batches'
 import BatchForm from './BatchForm'
 
 class BatchList extends PureComponent {
 
-  componentWillMount(props) {
+  componentDidMount(props) {
     this.props.fetchAllBatches()
   }
 
@@ -18,14 +19,19 @@ class BatchList extends PureComponent {
   }
 
   render() {
-    const { batches } = this.props
+    const { batches, currentUser } = this.props
+
+
+
     return(
       <div>
+
+
         <h1>All Batches</h1>
 
         {
           batches.map((batch, index) => (
-            <div className="batch">
+            <div className="batch" key={index}>
               <h1>Batch No. {batch.id}</h1>
               <p>{batch.students.length || 0 } students</p>
               <p>Start Date: {batch.startDate}</p>
@@ -38,17 +44,17 @@ class BatchList extends PureComponent {
         <h2>Create New batch</h2>
 
         <BatchForm onSubmit={this.createBatch} />
-
+        
       </div>
+
     )
   }
 }
 
-// Create New Batch Form
-
 const mapStateToProps = (state) => {
   return {
-    batches: state.batches
+    batches: state.batches,
+    currentUser: state.currentUser
   }
 }
 
