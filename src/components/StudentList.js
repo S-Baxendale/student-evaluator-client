@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { fetchBatch } from '../actions/batches'
 
 import Student from './Student'
+import StudentForm from './StudentForm'
 import '../styles/Student.css'
 
 class StudentList extends PureComponent {
@@ -19,6 +20,10 @@ class StudentList extends PureComponent {
 
   componentWillMount(props) {
     this.props.fetchBatch(this.props.match.params.id)
+  }
+
+  createStudent = (student) => {
+    this.props.createStudent(student)
   }
 
   percentageColor(students, color) {
@@ -58,6 +63,11 @@ class StudentList extends PureComponent {
             ))
           }
         </div>
+
+        <h2>Add a student to Batch #{batch.id}</h2>
+
+        <StudentForm onSubmit={this.createStudent} />
+
       </div>
     )
   }
