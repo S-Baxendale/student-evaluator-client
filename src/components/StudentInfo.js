@@ -14,11 +14,11 @@ class StudentInfo extends PureComponent {
     this.props.fetchStudent(this.props.match.params.id)
   }
 
-  createEvaluation = (evaluation, studentId) => {
-    this.props.createEvaluation(evaluation, this.props.match.params.id)
+  createEvaluation = (evaluation, studentId, teacher) => {
+    this.props.createEvaluation(evaluation, this.props.match.params.id, this.props.currentUser.teacher)
     console.log('New Evaluation clicked')
     console.log(this.props.match.params.id)
-    console.log(evaluation)
+    console.log(this.props.currentUser.teacher)
   }
 
   render() {
