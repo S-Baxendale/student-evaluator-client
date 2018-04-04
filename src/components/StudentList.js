@@ -26,6 +26,8 @@ class StudentList extends PureComponent {
 
   createStudent = (student, batchId) => {
     this.props.createStudent(student, this.props.match.params.id)
+    console.log(student)
+    console.log(batchId)
   }
 
   percentageColor(students, color) {

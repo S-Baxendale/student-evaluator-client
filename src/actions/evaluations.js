@@ -4,7 +4,7 @@ const baseUrl = 'http://localhost:4008'
 
 export const CREATED_EVALUATION = 'CREATED_EVALUATION'
 
-export const createEvaluation = (studentId, evaluation, teacher) => (dispatch, getState) => {
+export const createEvaluation = (evaluation, studentId) => (dispatch, getState) => {
   request
     .post(`${baseUrl}/evaluations/students/${studentId}`)
     .send(evaluation)

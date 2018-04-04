@@ -14,8 +14,11 @@ class StudentInfo extends PureComponent {
     this.props.fetchStudent(this.props.match.params.id)
   }
 
-  createEvaluation = (studentId, evaluation) => {
-    this.props.createEvaluation(this.props.match.params.id, evaluation)
+  createEvaluation = (evaluation, studentId) => {
+    this.props.createEvaluation(evaluation, this.props.match.params.id)
+    console.log('New Evaluation clicked')
+    console.log(this.props.match.params.id)
+    console.log(evaluation)
   }
 
   render() {
@@ -38,6 +41,7 @@ class StudentInfo extends PureComponent {
     )
   }
 }
+
 
 const mapStateToProps = (state, props) => {
   return {
