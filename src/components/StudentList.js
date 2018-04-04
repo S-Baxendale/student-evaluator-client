@@ -84,7 +84,7 @@ class StudentList extends PureComponent {
                   firstName={student.firstName}
                   lastName={student.lastName}
                   photo={
-                    student.photo.indexOf("jpg") >= 0 ?
+                    student.photo.indexOf("jpg") >= 0 || student.photo.indexOf("png") >= 0 ?
                       student.photo : 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
                     }
 
