@@ -17,7 +17,6 @@ class StudentList extends PureComponent {
     }).isRequired
   }
 
-
   componentWillMount(props) {
     this.props.fetchBatch(this.props.match.params.id)
   }
@@ -28,6 +27,7 @@ class StudentList extends PureComponent {
     const percentageYellow = (yellow.length / evaluated.length) * 100
     return Math.round(percentageYellow)
   }
+
 
   render() {
 

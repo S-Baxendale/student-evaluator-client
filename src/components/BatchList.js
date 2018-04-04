@@ -21,23 +21,22 @@ class BatchList extends PureComponent {
   render() {
     const { batches, currentUser } = this.props
 
-
-
     return(
       <div>
-
 
         <h1>All Batches</h1>
 
         {
           batches.map((batch, index) => (
-            <div className="batch" key={index}>
-              <h1>Batch No. {batch.id}</h1>
-              <p>{batch.students ?
-                batch.students.length : 0 } students</p>
-              <p>Start Date: {batch.startDate}</p>
-              <p>End Date: {batch.endDate}</p>
-            </div>
+
+              <div className="batch" key={index}>
+                <h1>Batch No. {batch.id}</h1>
+                <p>{batch.students ?
+                  batch.students.length : 0 } students</p>
+                <p>Start Date: {batch.startDate}</p>
+                <p>End Date: {batch.endDate}</p>
+                <Link to={ `/batches/${batch.id}` } >View Batch</Link>
+              </div>
 
           ))
         }
