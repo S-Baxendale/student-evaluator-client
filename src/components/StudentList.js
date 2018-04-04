@@ -9,6 +9,8 @@ import Student from './Student'
 import StudentForm from './StudentForm'
 import '../styles/Student.css'
 
+const stockImage = 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
+
 class StudentList extends PureComponent {
 
   static propTypes = {
@@ -85,7 +87,7 @@ class StudentList extends PureComponent {
                   lastName={student.lastName}
                   photo={
                     student.photo.indexOf("jpg") >= 0 || student.photo.indexOf("png") >= 0 ?
-                      student.photo : 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
+                      student.photo : stockImage
                     }
 
                   color={student.evaluations && student.evaluations.length > 0 ?
