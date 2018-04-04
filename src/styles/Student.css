@@ -1,0 +1,15 @@
+img {
+  max-width: 200px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.flex {
+  flex: 1;
+  background-color: green;
+  border: 1px solid black;
+}
