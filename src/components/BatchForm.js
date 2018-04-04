@@ -33,23 +33,15 @@ class BatchForm extends PureComponent {
 
         <div className="input">
           <label htmlFor="startDate" className="label">Start Date</label>
-          <input
-            name="startDate"
-            id="startDate"
-            value={ this.state.startDate || initialValues.startDate || ''}
-            onChange={ this.handleChange }
-          />
+          <input type="date" name="startDate" onChange={ this.handleChange }/>
         </div>
 
+
         <div className="input">
-        <label htmlFor="endDate" className="label">End Date</label>
-        <input
-          name="endDate"
-          id="endDate"
-          value={ this.state.endDate || initialValues.endDate || ''}
-          onChange={ this.handleChange }
-        />
+          <label htmlFor="endDate" className="label">End Date</label>
+          <input type="date" name="endDate" onChange={ this.handleChange }/>
         </div>
+
 
         <button
           className="submit"
