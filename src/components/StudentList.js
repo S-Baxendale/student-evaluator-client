@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { fetchBatch } from '../actions/batches'
 
 class StudentList extends PureComponent {
 
@@ -10,7 +11,9 @@ class StudentList extends PureComponent {
 
 
   render() {
+
     const { batch } = this.props
+    if(!batch) return null
     return(
       <div>
         <h1>Batch #{batch.id}</h1>
@@ -22,10 +25,10 @@ class StudentList extends PureComponent {
 
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
   return {
     batch: state.batch
   }
 }
 
-export default connect(mapStateToProps)(StudentList)
+export default connect(mapStateToProps, { fetchBatch })(StudentList)
