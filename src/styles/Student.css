@@ -132,3 +132,23 @@ img {
   text-decoration: none;
   color: white;
 }
+
+.new-student-btn {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-decoration: none;
+  color: #4d4e4f;
+  font-size: 20px;
+  font-weight: bold;
+  border: 2px solid #90addd;
+  padding: 20px;
+}
+
+.new-student-btn:hover {
+  background-color: #90addd;
+  color: white;
+}
+
+.new-student-btn:focus {
+  outline:0;
+}

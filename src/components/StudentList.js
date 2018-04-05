@@ -78,13 +78,13 @@ class StudentList extends PureComponent {
 
         <h1>Batch #{batch.id}</h1>
 
-        <button onClick={this.toggleEdit}>Add a student</button>
+        <button onClick={this.toggleEdit} className="new-student-btn">Add a student</button>
 
         {
           this.state.edit &&
           <StudentForm onSubmit={this.createStudent} />
         }
-        
+
         <button className="evaluate-btn">Evaluate a random Student!</button>
 
 
