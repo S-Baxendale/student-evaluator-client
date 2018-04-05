@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 import EvaluationHistory from './EvaluationHistory'
 import NewEvaluation from './NewEvaluation'
@@ -29,6 +30,8 @@ class StudentInfo extends PureComponent {
 
         <h1>Student Information</h1>
 
+        <p>Batch ID: {student.batch.id}</p>
+
         <img src={ student.photo } alt="profile"/>
         <p>First Name: {student.firstName}</p>
         <p>Last Name: { student.lastName }</p>
@@ -39,6 +42,8 @@ class StudentInfo extends PureComponent {
         <EvaluationHistory student={student}/>
 
         <NewEvaluation onSubmit={this.createEvaluation}/>
+
+        <Link to={ `/batches/${student.batch.id}` } >Back to Batch {student.batch.id}</Link>
       </div>
     )
   }

@@ -66,29 +66,33 @@ class StudentList extends PureComponent {
 
         <button className="evaluate-btn">Evaluate a random Student!</button>
 
-        <h3>Evaluation Color Distribution</h3>
 
-        <div className="percentage-bar">
-          <div
-            style={{width : this.percentageColor(batch.students, "green")}}
-            className="percentage-green"
-          >
-            {this.percentageColor(batch.students, "green")}
-          </div>
-          <div
-            style={{width : this.percentageColor(batch.students, "yellow")}}
-            className="percentage-yellow"
-          >
-            {this.percentageColor(batch.students, "yellow")}
-          </div>
-          <div
-            style={{width : this.percentageColor(batch.students, "red")}}
-            className="percentage-red"
-          >
-            {this.percentageColor(batch.students, "red")}
-          </div>
-        </div>
 
+        { batch.students.evaluations &&
+
+          <div className="percentage-bar">
+
+            <h3>Evaluation Color Distribution</h3>
+            <div
+              style={{width : this.percentageColor(batch.students, "green")}}
+              className="percentage-green"
+            >
+              {this.percentageColor(batch.students, "green")}
+            </div>
+            <div
+              style={{width : this.percentageColor(batch.students, "yellow")}}
+              className="percentage-yellow"
+            >
+              {this.percentageColor(batch.students, "yellow")}
+            </div>
+            <div
+              style={{width : this.percentageColor(batch.students, "red")}}
+              className="percentage-red"
+            >
+              {this.percentageColor(batch.students, "red")}
+            </div>
+          </div>
+        }
 
 
 
@@ -96,10 +100,10 @@ class StudentList extends PureComponent {
           {
             batch.students.map((student, index) => (
               <div className="student">
-              <div className="status"></div>
                 <Student
 
                   key={index}
+                  batch={this.props.batch}
                   firstName={student.firstName}
                   lastName={student.lastName}
                   photo={
@@ -114,6 +118,10 @@ class StudentList extends PureComponent {
 
                   evaluations={student.evaluations && student.evaluations.length > 0 ?
                     student.evaluations.length : 0 }
+
+                  status={student.evaluations && student.evaluations.length > 0 ?
+                    this.sortEvaluations(student.evaluations)[0].color : 'grey'}
+
                  />
 
 
