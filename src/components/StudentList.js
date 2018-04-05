@@ -10,6 +10,7 @@ import Student from './Student'
 import StudentForm from './StudentForm'
 import '../styles/Student.css'
 
+
 const stockImage = 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
 
 class StudentList extends PureComponent {
@@ -140,7 +141,7 @@ class StudentList extends PureComponent {
           }
         </div>
 
-        <Link to={ `/batches/` } >Back to List of Batches</Link>
+        <Link to={ `/batches/` } className="back-link">Back to List of Batches</Link>
 
       </div>
     )

@@ -6,6 +6,7 @@
 .batch {
   flex: 1;
   width: 200px;
+  min-width: 200px;
   margin: 30px;
   border: 2px solid #90addd;
   padding: 0;

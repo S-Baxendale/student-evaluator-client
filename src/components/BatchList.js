@@ -51,8 +51,8 @@ class BatchList extends PureComponent {
                   <div className="batch-body">
                     <p>{batch.students ?
                       batch.students.length : 0 } students</p>
-                    <p>Start Date: {batch.startDate}</p>
-                    <p>End Date: {batch.endDate}</p>
+                    <p><b>Start Date:</b> {batch.startDate.slice(0,10)}</p>
+                    <p><b>End Date:</b> {batch.endDate.slice(0,10)}</p>
 
                   </div>
                 </Link>
