@@ -8,9 +8,8 @@ class Student extends PureComponent {
 
     return(
       <div>
-
-        <h3>{this.props.firstName} {this.props.lastName}</h3>
         <img src={this.props.photo} alt="Profile"/>
+        <h3>{this.props.firstName} {this.props.lastName}</h3>
         <p>Student ID: {this.props.id}</p>
         <p>Evaluations: {this.props.evaluations}</p>
         <div className={this.props.status}></div>

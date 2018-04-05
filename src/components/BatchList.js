@@ -28,10 +28,10 @@ class BatchList extends PureComponent {
 
       <h2>Create New batch</h2>
 
-      <BatchForm onSubmit={this.createBatch} />
+      <BatchForm onSubmit={this.createBatch} class="batch-form"/>
 
 
-        <h2>All Batches</h2>
+        <h2 className="batch-title">All Batches</h2>
 
         <div className="flex-container">
           {
@@ -53,7 +53,7 @@ class BatchList extends PureComponent {
                       batch.students.length : 0 } students</p>
                     <p>Start Date: {batch.startDate}</p>
                     <p>End Date: {batch.endDate}</p>
-                  
+
                   </div>
                 </Link>
                 </div>
