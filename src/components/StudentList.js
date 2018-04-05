@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { fetchBatch } from '../actions/batches'
-import { createStudent } from '../actions/students'
+import { createStudent, removeStudent } from '../actions/students'
 import { lastEvaluationColor } from '../algorithm'
 
 import Student from './Student'
@@ -33,6 +33,11 @@ class StudentList extends PureComponent {
     console.log(batchId)
   }
 
+  removeStudent = (studentId) => {
+    this.props.removeStudent(studentId)
+    console.log('button clicked')
+  }
+
   percentageColor(students, color) {
 
     const evaluated = (students) ? students.filter(student => student.evaluations && student.evaluations.length > 0) : null
@@ -48,6 +53,8 @@ class StudentList extends PureComponent {
      console.log(evaluations[0].color)
      return evaluations
   }
+
+
 
 
   render() {
@@ -127,6 +134,10 @@ class StudentList extends PureComponent {
 
 
                  <Link to={ `/students/${student.id}` } className="link">View Student</Link>
+
+                 <button onClick={ () => this.removeStudent(student.id) }>
+                    Remove Student
+                  </button>
                </div>
             ))
           }
@@ -146,4 +157,4 @@ const mapStateToProps = (state, props) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchBatch, createStudent })(StudentList)
+export default connect(mapStateToProps, { fetchBatch, createStudent, removeStudent })(StudentList)

@@ -22,9 +22,6 @@ class StudentInfo extends PureComponent {
     console.log(this.props.currentUser.teacher)
   }
 
-  handleClick() {
-    
-  }
 
   render() {
     const { student, currentUser } = this.props
@@ -41,8 +38,7 @@ class StudentInfo extends PureComponent {
         <p>Last Name: { student.lastName }</p>
 
         <button onClick={this.handleClick}>Update Student Information</button>
-        <button>Remove Student</button>
-
+        
         <EvaluationHistory student={student}/>
 
         <NewEvaluation onSubmit={this.createEvaluation}/>
