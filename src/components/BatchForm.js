@@ -8,6 +8,7 @@ class BatchForm extends PureComponent {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.onSubmit(this.state)
+    
   }
 
   handleChange = (e) => {

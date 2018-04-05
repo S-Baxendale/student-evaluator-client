@@ -6,6 +6,7 @@ class NewEvaluation extends PureComponent {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.onSubmit(this.state)
+
   }
 
   handleChange = (e) => {
@@ -14,6 +15,8 @@ class NewEvaluation extends PureComponent {
       [name]: value
     })
   }
+
+  
 
   render() {
     const initialValues = this.props.initialValues || {}

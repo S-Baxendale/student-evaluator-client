@@ -4,6 +4,7 @@ const baseUrl = 'http://localhost:4008'
 
 export const CREATED_STUDENT = 'CREATED_STUDENT'
 export const FETCHED_STUDENT = 'FETCHED_STUDENT'
+export const REMOVED_STUDENT = 'REMOVED_STUDENT'
 
 export const createStudent = (student, batchId) => (dispatch, getState) => {
   request
@@ -24,3 +25,14 @@ export const fetchStudent = (studentId) => (dispatch) => {
       }))
       .catch(err => alert(err))
   }
+
+
+export const removeStudent = (studentId) => (dispatch) => {
+  request
+    .delete(`${baseUrl}/students/${studentId}`)
+    .then(response => dispatch({
+      type: REMOVED_STUDENT,
+      payload: studentId
+    }))
+
+}
