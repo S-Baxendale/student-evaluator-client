@@ -32,6 +32,12 @@ class StudentInfo extends PureComponent {
     })
   }
 
+  updateStudent = (student) => {
+    this.props.updateStudent(this.props.match.params.id, student)
+    this.toggleEdit()
+  }
+
+
   render() {
     const { student, currentUser } = this.props
     if (!student) return null
