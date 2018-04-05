@@ -22,8 +22,7 @@ class NewEvaluation extends PureComponent {
       <form onSubmit={this.handleSubmit}>
 
         <h2>Add an Evaluation</h2>
-
-        <input type="date" name="date" onChange={ this.handleChange }/>
+        <input type="date" name="date" value={new Date().toISOString().substr(0, 10)} onChange={ this.handleChange }/>
 
         <label htmlFor="green">Green </label>
         <input type="radio" name="color" value={"green"} onChange={ this.handleChange }/>
