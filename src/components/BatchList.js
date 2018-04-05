@@ -19,6 +19,7 @@ class BatchList extends PureComponent {
     console.log('Created Batch')
   }
 
+
   render() {
     const { batches, currentUser } = this.props
 

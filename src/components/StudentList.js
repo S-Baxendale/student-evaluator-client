@@ -33,10 +33,11 @@ class StudentList extends PureComponent {
   }
 
   percentageColor(students, color) {
-    const evaluated = students.filter(student => student.evaluations && student.evaluations.length > 0)
-    const yellow = evaluated.filter(student => student.evaluations[0].color === color)
-    const percentageColor = Math.round((yellow.length / evaluated.length) * 100) + '%'
-    return percentageColor
+
+    const evaluated = (students) ? students.filter(student => student.evaluations && student.evaluations.length > 0) : null
+    const evaluationColor = (evaluated) ? evaluated.filter(student => student.evaluations[0].color === color) : null
+    const percentageColor = (evaluationColor) ? Math.round((evaluationColor.length / evaluated.length) * 100) + '%' : null
+    return percentageColor || null
   }
 
 
@@ -52,6 +53,8 @@ class StudentList extends PureComponent {
         <h2>Add a student to Batch #{batch.id}</h2>
 
         <StudentForm onSubmit={this.createStudent} />
+
+        <button className="evaluate-btn">Evaluate a random Student!</button>
 
         <h3>Evaluation Color Distribution</h3>
 
@@ -76,10 +79,14 @@ class StudentList extends PureComponent {
           </div>
         </div>
 
+
+
+
         <div className="student-list">
           {
             batch.students.map((student, index) => (
               <div className="student">
+              <div className="status"></div>
                 <Student
 
                   key={index}
@@ -92,6 +99,9 @@ class StudentList extends PureComponent {
 
                   color={student.evaluations && student.evaluations.length > 0 ?
                     student.evaluations[0].color : 'grey'}
+
+                  evaluations={student.evaluations && student.evaluations.length > 0 ?
+                    student.evaluations.length : 0 }
                  />
 
                  <Link to={ `/students/${student.id}` } className="link">View Student</Link>
