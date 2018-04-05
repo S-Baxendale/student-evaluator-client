@@ -24,3 +24,15 @@
   margin-right: 5px;
   background-color: #e8e568;
 }
+
+.history-title {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  margin-left: 50px;
+  text-align: left;
+}
+
+.history {
+  text-align: left;
+  margin-left: 50px;
+}

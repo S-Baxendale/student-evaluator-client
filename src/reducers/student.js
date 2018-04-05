@@ -1,4 +1,4 @@
-import { FETCHED_STUDENT, UPDATED_STUDENT } from '../actions/students'
+import { FETCHED_STUDENT, UPDATED_STUDENT, REMOVED_STUDENT } from '../actions/students'
 import { CREATED_EVALUATION } from '../actions/evaluations'
 
 
@@ -13,6 +13,7 @@ export default function (state = null, action) {
         return action.payload
       }
       else return state
+      
     default:
       return state
   }

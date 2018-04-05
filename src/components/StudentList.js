@@ -88,7 +88,7 @@ class StudentList extends PureComponent {
         }
 
 
-
+        { batch.students.filter(student => student.evaluations[0]) &&
 
           <div className="percentage-bar">
 
@@ -112,7 +112,7 @@ class StudentList extends PureComponent {
             </div>
           </div>
 
-
+          }
 
 
         <div className="student-list">

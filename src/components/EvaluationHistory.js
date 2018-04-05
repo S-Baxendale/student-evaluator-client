@@ -21,15 +21,16 @@ class EvaluationHistory extends PureComponent {
 
     return(
       <div>
-        <h2>Evaluation History</h2>
-
-        {
-          this.sortEvaluations(student.evaluations)
-              .map((evaluation, index) => (
-            <div className={`${evaluation.color}-status`}>
-            </div>
-          ))
-        }
+        <h2 className="history-title">Evaluation History</h2>
+        <div className="history">
+          {
+            this.sortEvaluations(student.evaluations)
+                .map((evaluation, index) => (
+              <div className={`${evaluation.color}-status`}>
+              </div>
+            ))
+          }
+        </div>
       </div>
     )
 
