@@ -40,6 +40,12 @@ class StudentList extends PureComponent {
     return percentageColor || null
   }
 
+  sortEvaluations = (evaluations) => {
+    evaluations.sort(function(a, b) {
+       return  (b.date - a.date);
+     })
+     return evaluations
+  }
 
   render() {
 
