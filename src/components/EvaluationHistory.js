@@ -5,12 +5,14 @@ import '../styles/EvaluationHistory.css'
 class EvaluationHistory extends PureComponent {
 
   sortEvaluations = (evaluations) => {
+  if (evaluations) {
     evaluations.sort(function(a, b) {
        return  (Date.parse(b.date) - Date.parse(a.date));
      })
      console.log(evaluations)
      return evaluations
   }
+}
 
   render() {
 
@@ -25,7 +27,6 @@ class EvaluationHistory extends PureComponent {
           this.sortEvaluations(student.evaluations)
               .map((evaluation, index) => (
             <div className={evaluation.color}>
-              <p>{evaluation.color}</p>
             </div>
           ))
         }

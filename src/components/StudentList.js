@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { fetchBatch } from '../actions/batches'
 import { createStudent } from '../actions/students'
+import { lastEvaluationColor } from '../algorithm'
 
 import Student from './Student'
 import StudentForm from './StudentForm'
@@ -44,9 +45,10 @@ class StudentList extends PureComponent {
     evaluations.sort(function(a, b) {
        return  (Date.parse(b.date) - Date.parse(a.date));
      })
-     console.log(evaluations)
+     console.log(evaluations[0].color)
      return evaluations
   }
+
 
   render() {
 
@@ -55,6 +57,7 @@ class StudentList extends PureComponent {
 
     return(
       <div>
+
         <h1>Batch #{batch.id}</h1>
 
         <h2>Add a student to Batch #{batch.id}</h2>
@@ -112,6 +115,8 @@ class StudentList extends PureComponent {
                   evaluations={student.evaluations && student.evaluations.length > 0 ?
                     student.evaluations.length : 0 }
                  />
+
+
 
                  <Link to={ `/students/${student.id}` } className="link">View Student</Link>
                </div>

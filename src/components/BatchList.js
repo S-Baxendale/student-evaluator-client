@@ -65,6 +65,7 @@ class BatchList extends PureComponent {
 const mapStateToProps = (state) => {
   return {
     batches: state.batches,
+    student: state.student,
     currentUser: state.currentUser
   }
 }
