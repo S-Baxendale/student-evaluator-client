@@ -5,11 +5,15 @@ import { Link } from 'react-router-dom'
 
 import EvaluationHistory from './EvaluationHistory'
 import NewEvaluation from './NewEvaluation'
+import StudentForm from './StudentForm'
 
 import { fetchStudent } from '../actions/students'
 import { createEvaluation } from '../actions/evaluations'
 
 class StudentInfo extends PureComponent {
+  state = {
+    edit: false
+  }
 
   componentWillMount(props) {
     this.props.fetchStudent(this.props.match.params.id)
@@ -22,6 +26,11 @@ class StudentInfo extends PureComponent {
     console.log(this.props.currentUser.teacher)
   }
 
+  toggleEdit = () => {
+    this.setState({
+      edit: !this.state.edit
+    })
+  }
 
   render() {
     const { student, currentUser } = this.props
@@ -37,8 +46,13 @@ class StudentInfo extends PureComponent {
         <p>First Name: {student.firstName}</p>
         <p>Last Name: { student.lastName }</p>
 
-        <button onClick={this.handleClick}>Update Student Information</button>
-        
+        <button onClick={this.toggleEdit}>Update Student Information</button>
+
+        {
+          this.state.edit &&
+          <StudentForm inititalValues={student} onSubmit={this.updateStudent} />
+        }
+
         <EvaluationHistory student={student}/>
 
         <NewEvaluation onSubmit={this.createEvaluation}/>

@@ -75,7 +75,7 @@ class StudentList extends PureComponent {
 
 
 
-        { batch.students.evaluations &&
+
 
           <div className="percentage-bar">
 
@@ -99,7 +99,7 @@ class StudentList extends PureComponent {
               {this.percentageColor(batch.students, "red")}
             </div>
           </div>
-        }
+        
 
 
 
