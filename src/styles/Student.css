@@ -25,6 +25,7 @@ img {
 
 .percentage-bar {
   margin-bottom: 50px;
+  margin-top: 50px;
   font-weight: bold;
 
 }
@@ -135,13 +136,15 @@ img {
 
 .new-student-btn {
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   text-decoration: none;
   color: #4d4e4f;
   font-size: 20px;
   font-weight: bold;
   border: 2px solid #90addd;
   padding: 20px;
+  display: block;
+  margin: auto;
 }
 
 .new-student-btn:hover {

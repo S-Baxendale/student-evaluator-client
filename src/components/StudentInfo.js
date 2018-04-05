@@ -10,6 +10,8 @@ import StudentForm from './StudentForm'
 import { fetchStudent, updateStudent } from '../actions/students'
 import { createEvaluation } from '../actions/evaluations'
 
+import '../styles/StudentInfo.css'
+
 
 const stockImage = 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
 
@@ -46,27 +48,32 @@ class StudentInfo extends PureComponent {
     if (!student) return null
     return(
       <div>
+        <div className="info-container">
+          <div className="info-flex">
+            <h1 className="student-title">{student.firstName} { student.lastName }</h1>
 
-        <h1>Student Information</h1>
+            <p>Batch No. { student.batch.id } </p>
 
-        <p>Batch No. { student.batch.id } </p>
 
-        
-        <img src={ student.photo.indexOf("jpg") >= 0 || student.photo.indexOf("png") >= 0 ?
-          student.photo : stockImage } alt="profile"/>
-        <p>First Name: {student.firstName}</p>
-        <p>Last Name: { student.lastName }</p>
+            <img src={ student.photo.indexOf("jpg") >= 0 || student.photo.indexOf("png") >= 0 ?
+              student.photo : stockImage } alt="profile" className="profile"/>
 
-        <button onClick={this.toggleEdit}>Update Student Information</button>
+            <button onClick={this.toggleEdit} className="update-student-btn">Update Student Information</button>
 
-        {
-          this.state.edit &&
-          <StudentForm inititalValues={student} onSubmit={this.updateStudent} />
-        }
+            {
+              this.state.edit &&
+              <StudentForm inititalValues={student} onSubmit={this.updateStudent} />
+            }
 
-        <EvaluationHistory student={student}/>
+          </div>
 
-        <NewEvaluation onSubmit={this.createEvaluation}/>
+          <div className="info-flex">
+            <EvaluationHistory student={student}/>
+
+            <NewEvaluation onSubmit={this.createEvaluation}/>
+          </div>
+
+        </div>
 
         <Link to={ `/batches/${student.batch.id}` } >Back to Batch {student.batch.id}</Link>
       </div>
