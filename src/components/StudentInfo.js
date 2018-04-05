@@ -10,6 +10,9 @@ import StudentForm from './StudentForm'
 import { fetchStudent, updateStudent } from '../actions/students'
 import { createEvaluation } from '../actions/evaluations'
 
+
+const stockImage = 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
+
 class StudentInfo extends PureComponent {
   state = {
     edit: false
@@ -39,16 +42,18 @@ class StudentInfo extends PureComponent {
 
 
   render() {
-    const { student, currentUser } = this.props
+    const { student, batch, currentUser } = this.props
     if (!student) return null
     return(
       <div>
 
         <h1>Student Information</h1>
 
-        <p>Batch ID: {student.batch.id}</p>
+        <p>Batch No. { student.batch.id } </p>
 
-        <img src={ student.photo } alt="profile"/>
+        
+        <img src={ student.photo.indexOf("jpg") >= 0 || student.photo.indexOf("png") >= 0 ?
+          student.photo : stockImage } alt="profile"/>
         <p>First Name: {student.firstName}</p>
         <p>Last Name: { student.lastName }</p>
 

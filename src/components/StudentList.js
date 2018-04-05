@@ -74,9 +74,6 @@ class StudentList extends PureComponent {
         <button className="evaluate-btn">Evaluate a random Student!</button>
 
 
-
-
-
           <div className="percentage-bar">
 
             <h3>Evaluation Color Distribution</h3>
@@ -99,7 +96,7 @@ class StudentList extends PureComponent {
               {this.percentageColor(batch.students, "red")}
             </div>
           </div>
-        
+
 
 
 
