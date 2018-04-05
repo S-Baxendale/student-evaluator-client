@@ -7,7 +7,7 @@ export default function (state = null, action) {
     case FETCHED_STUDENT:
       return action.payload
     case CREATED_EVALUATION:
-      return state.evaluations.concat(action.payload)
+      return {...state, evaluations: [...state.evaluations, action.payload]}
     default:
       return state
   }
