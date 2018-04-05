@@ -10,6 +10,16 @@ import '../styles/BatchList.css'
 
 class BatchList extends PureComponent {
 
+  state = {
+    edit: false
+  }
+
+  toggleEdit = () => {
+    this.setState({
+      edit: !this.state.edit
+    })
+  }
+
   componentDidMount(props) {
     this.props.fetchAllBatches()
   }
@@ -26,10 +36,12 @@ class BatchList extends PureComponent {
     return(
       <div>
 
-      <h2>Create New batch</h2>
+      <button onClick={this.toggleEdit} className="new-batch-btn">Create New Batch</button>
 
-      <BatchForm onSubmit={this.createBatch} class="batch-form"/>
-
+      {
+        this.state.edit &&
+        <BatchForm onSubmit={this.createBatch} class="batch-form"/>
+      }
 
         <h2 className="batch-title">All Batches</h2>
 
