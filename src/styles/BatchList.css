@@ -9,6 +9,8 @@
   margin: 30px;
   border: 2px solid #90addd;
   padding: 0;
+
+
 }
 
 .batch-header {
@@ -22,4 +24,9 @@
 
 .batch-body {
   padding: 20px;
+}
+
+.batch-link {
+  text-decoration: none;
+  color: black;
 }
