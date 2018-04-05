@@ -42,8 +42,9 @@ class StudentList extends PureComponent {
 
   sortEvaluations = (evaluations) => {
     evaluations.sort(function(a, b) {
-       return  (b.date - a.date);
+       return  (Date.parse(b.date) - Date.parse(a.date));
      })
+     console.log(evaluations)
      return evaluations
   }
 
@@ -103,8 +104,10 @@ class StudentList extends PureComponent {
                       student.photo : stockImage
                     }
 
+                  id={student.id}
+
                   color={student.evaluations && student.evaluations.length > 0 ?
-                    student.evaluations[0].color : 'grey'}
+                    this.sortEvaluations(student.evaluations)[0].color : 'grey'}
 
                   evaluations={student.evaluations && student.evaluations.length > 0 ?
                     student.evaluations.length : 0 }
