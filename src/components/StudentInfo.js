@@ -7,7 +7,7 @@ import EvaluationHistory from './EvaluationHistory'
 import NewEvaluation from './NewEvaluation'
 import StudentForm from './StudentForm'
 
-import { fetchStudent } from '../actions/students'
+import { fetchStudent, updateStudent } from '../actions/students'
 import { createEvaluation } from '../actions/evaluations'
 
 class StudentInfo extends PureComponent {
@@ -77,4 +77,4 @@ const mapStateToProps = (state, props) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchStudent, createEvaluation })(StudentInfo)
+export default connect(mapStateToProps, { fetchStudent, createEvaluation, updateStudent })(StudentInfo)
