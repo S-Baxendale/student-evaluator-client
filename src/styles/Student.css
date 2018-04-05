@@ -8,14 +8,17 @@ img {
   flex-wrap: wrap;
   justify-content: space-around;
 
+
 }
 
 .student {
   flex: 1;
-  max-width: 250px;
+  max-width: 220px;
+  min-width: 220px;
   margin: 30px;
   border: 2px solid #90addd;
   padding: 0;
+
 }
 
 

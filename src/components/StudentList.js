@@ -15,6 +15,10 @@ const stockImage = 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
 
 class StudentList extends PureComponent {
 
+  state = {
+    edit: false
+  }
+
   static propTypes = {
     batch: PropTypes.shape({
       id: PropTypes.number.isrequired,
@@ -22,6 +26,12 @@ class StudentList extends PureComponent {
       endDate: PropTypes.string.isRequired,
       students: PropTypes.array.isRequired
     }).isRequired
+  }
+
+  toggleEdit = () => {
+    this.setState({
+      edit: !this.state.edit
+    })
   }
 
   componentWillMount(props) {
@@ -68,10 +78,13 @@ class StudentList extends PureComponent {
 
         <h1>Batch #{batch.id}</h1>
 
-        <h2>Add a student to Batch #{batch.id}</h2>
+        <button onClick={this.toggleEdit}>Add a student</button>
 
-        <StudentForm onSubmit={this.createStudent} />
-
+        {
+          this.state.edit &&
+          <StudentForm onSubmit={this.createStudent} />
+        }
+        
         <button className="evaluate-btn">Evaluate a random Student!</button>
 
 
@@ -136,7 +149,7 @@ class StudentList extends PureComponent {
                     Remove Student
                   </button>
                 </div>
-                 
+
                </div>
             ))
           }
