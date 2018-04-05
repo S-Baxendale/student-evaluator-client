@@ -26,7 +26,7 @@ class EvaluationHistory extends PureComponent {
         {
           this.sortEvaluations(student.evaluations)
               .map((evaluation, index) => (
-            <div className={evaluation.color}>
+            <div className={`${evaluation.color}-status`}>
             </div>
           ))
         }

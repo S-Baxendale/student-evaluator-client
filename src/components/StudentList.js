@@ -77,7 +77,6 @@ class StudentList extends PureComponent {
 
           <div className="percentage-bar">
 
-            <h3>Evaluation Color Distribution</h3>
             <div
               style={{width : this.percentageColor(batch.students, "green")}}
               className="percentage-green"
@@ -105,6 +104,7 @@ class StudentList extends PureComponent {
           {
             batch.students.map((student, index) => (
               <div className="student">
+
                 <Student
 
                   key={index}
@@ -129,13 +129,14 @@ class StudentList extends PureComponent {
 
                  />
 
+                 <div className="links">
+                  <Link to={ `/students/${student.id}` } className="view-link">View Student</Link>
 
-
-                 <Link to={ `/students/${student.id}` } className="link">View Student</Link>
-
-                 <button onClick={ () => this.removeStudent(student.id) }>
+                  <button onClick={ () => this.removeStudent(student.id) } className="remove-link">
                     Remove Student
                   </button>
+                </div>
+                 
                </div>
             ))
           }

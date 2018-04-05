@@ -1,4 +1,4 @@
-.red{
+.red-status{
   width: 30px;
   height: 30px;
   display: inline-block;
@@ -6,15 +6,15 @@
   background-color: red;
 }
 
-.green {
+.green-status {
   width: 30px;
   height: 30px;
   display: inline-block;
   margin-right: 5px;
-  background-color: green;
+  background-color: green
 }
 
-.yellow {
+.yellow-status {
   width: 30px;
   height: 30px;
   display: inline-block;

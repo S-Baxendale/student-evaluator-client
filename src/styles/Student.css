@@ -78,15 +78,54 @@ img {
 }
 
 .grey{
-  width: 40px;
+  width: 100%;
   height: 40px;
   background-color: grey;
   margin-top: -5px;
-  border-radius: 50%;
   margin: auto;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
-.back-link {
+.green {
+  width: 100%;
+  height: 40px;
+  background-color: #92cc80;
+  margin-top: -5px;
+  margin: auto;
+  margin-bottom: 0;
+}
 
+.yellow {
+  width: 100%;
+  height: 40px;
+  background-color: #e8e568;
+  margin-top: -5px;
+  margin: auto;
+  margin-bottom: 0;
+}
+
+.red {
+  width: 100%;
+  height: 40px;
+  background-color: #c64c43;
+  margin-top: -5px;
+  margin: auto;
+  margin-bottom: 0;
+}
+
+
+.links {
+  background-color: #90addd;
+  margin-bottom: -20px;
+  height: 50px;
+}
+
+.remove-link {
+  text-decoration: none;
+}
+
+.view-link {
+  margin-top: 20px;
+  text-decoration: none;
+  color: white;
 }
