@@ -100,8 +100,8 @@ class StudentList extends PureComponent {
     for(var i = 0 ; i < weight.length ;i++){
       //amt+=weight[i]; *alternative method
       //if(n<amt){
-      if(n<weight[i]){
-        return studentsArray[i][ Math.floor(Math.random() * studentsArray[i].length ) ];
+      if(n < weight[i]){
+        return studentsArray[i][ Math.floor(Math.random() * studentsArray[i].length ) ].id;
       }
     }
   }
@@ -115,10 +115,6 @@ class StudentList extends PureComponent {
     return(
       <div>
 
-      {
-
-        console.log( Math.floor(Math.random() * 5) )
-      }
 
       {
         console.log(
@@ -147,7 +143,13 @@ class StudentList extends PureComponent {
 
         <h1>Batch #{batch.id}</h1>
 
-        <button className="evaluate-btn">Evaluate a random Student!</button>
+        <Link to={ `/students/${this.randomStudent(
+          [
+            this.redStudents(this.sortEvaluations2(batch.students)),
+            this.yellowStudents(this.sortEvaluations2(batch.students)),
+            this.greenStudents(this.sortEvaluations2(batch.students))
+          ])}` }
+          className="random-btn">Ask A Question</Link>
 
         <button onClick={this.toggleEdit} className="new-student-btn">Add a student</button>
 
