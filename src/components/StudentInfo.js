@@ -42,7 +42,6 @@ class StudentInfo extends PureComponent {
     this.toggleEdit()
   }
 
-
   render() {
     const { student, batch, currentUser } = this.props
     if (!student) return null
@@ -70,9 +69,8 @@ class StudentInfo extends PureComponent {
 
           <div className="info-flex">
 
-
             <EvaluationHistory student={student} />
-
+            
             <NewEvaluation onSubmit={this.createEvaluation} batch={student.batch}/>
           </div>
 

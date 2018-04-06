@@ -2,20 +2,15 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+
 import { fetchBatch } from '../actions/batches'
 import { createStudent, removeStudent } from '../actions/students'
-import { lastEvaluationColor } from '../algorithm'
 
 import Student from './Student'
 import StudentForm from './StudentForm'
 import '../styles/Student.css'
 
-
 const stockImage = 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
-
-// Weight array for randomStudent function"
-//const weight = [ 53, 28, 19 ]
-
 
 class StudentList extends PureComponent {
 
@@ -66,7 +61,6 @@ class StudentList extends PureComponent {
      return evaluations
   }
 
-
   sortEvaluations2 = (students) => {
     const evaluatedStudents = (students) ? students.filter(student => student.evaluations && student.evaluations.length > 0) : null
     evaluatedStudents.map(student => student.evaluations.sort(function(a, b) {
@@ -78,25 +72,18 @@ class StudentList extends PureComponent {
 
    redStudents = (sortedStudents) => {
      const redStudents = sortedStudents.filter(student => student.evaluations[0].color === 'red')
-
        return redStudents
-
    }
 
    yellowStudents = (sortedStudents) => {
      const yellowStudents = sortedStudents.filter(student => student.evaluations[0].color === 'yellow')
-
        return yellowStudents
-
    }
 
    greenStudents = (sortedStudents) => {
      const greenStudents = sortedStudents.filter(student => student.evaluations[0].color === 'green')
-
        return greenStudents
-
    }
-
    // Insert array of above students array as argument:
   randomStudent = (studentsArray) => {
     const weight = [ 53, 81, 100 ]
@@ -104,9 +91,7 @@ class StudentList extends PureComponent {
 
     for(var i = 0 ; i < weight.length; i++){
       if(n < weight[i]){
-      //  console.log(studentsArray[i])
         if (studentsArray[i].length > 0) {
-          
           return studentsArray[i][ Math.floor(Math.random() * studentsArray[i].length ) ].id
         } else {
           return null
@@ -114,9 +99,6 @@ class StudentList extends PureComponent {
       }
     }
   }
-
-
-
 
   render() {
 
@@ -138,8 +120,6 @@ class StudentList extends PureComponent {
           ]
         )}` }
           className="random-btn"> Ask A Question </Link>
-
-
 
         {
           this.state.edit &&
@@ -170,8 +150,6 @@ class StudentList extends PureComponent {
             </div>
 
           </div>
-
-
 
 
         <div className="student-list">

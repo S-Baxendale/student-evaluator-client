@@ -1,9 +1,7 @@
 import React, { PureComponent} from 'react'
 
-
 class StudentForm extends PureComponent {
   state={}
-
 
   handleSubmit = (e) => {
     e.preventDefault()
@@ -61,6 +59,5 @@ class StudentForm extends PureComponent {
   }
 
 }
-
 
 export default StudentForm

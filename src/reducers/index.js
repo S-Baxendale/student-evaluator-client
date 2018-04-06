@@ -8,5 +8,4 @@ export default {
   batch,
   student,
   currentUser: login
-
 }

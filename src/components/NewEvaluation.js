@@ -40,14 +40,11 @@ class NewEvaluation extends PureComponent {
 
    if (this.state.redirectToNext) {
     return (
-    <Redirect to={`/batches/${batch.id}`} />
+    <Redirect to={`/students/10`} />
     )
   }
 
-
     return(
-
-
 
       <form onSubmit={this.handleSubmit}>
 
@@ -89,15 +86,12 @@ class NewEvaluation extends PureComponent {
 
         <button
           className="submit-evaluation"
-          onclick={this.handleClick}
+          onClick={this.handleClick}
           >Save & Next
         </button>
       </form>
     )
   }
-
-
-
 }
 
 export default NewEvaluation

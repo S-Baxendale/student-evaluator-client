@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Redirect } from 'react-router-dom'
 
 import { fetchAllBatches, createBatch } from '../actions/batches'
 import BatchForm from './BatchForm'
@@ -29,10 +28,9 @@ class BatchList extends PureComponent {
     console.log('Created Batch')
   }
 
-
   render() {
     const { batches, currentUser } = this.props
-    
+
     return(
       <div>
 
@@ -53,7 +51,6 @@ class BatchList extends PureComponent {
                })
               .map((batch, index) => (
 
-
                 <div className="batch" key={index}>
                 <Link to={ `/batches/${batch.id}` } className="batch-link">
                   <div className="batch-header">
@@ -69,12 +66,9 @@ class BatchList extends PureComponent {
                   </div>
                 </Link>
                 </div>
-
-
             ))
           }
         </div>
-
 
         { !currentUser &&
           <div>

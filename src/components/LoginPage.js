@@ -17,7 +17,6 @@ class LoginPage extends PureComponent {
       <Redirect to="/batches" />
     )
 
-
     return(
       <div>
         <h1 class="login-title">Welcome</h1>

@@ -15,7 +15,6 @@ class EvaluationHistory extends PureComponent {
 }
 
   render() {
-
     const { student } = this.props
     if(!student) return null
 

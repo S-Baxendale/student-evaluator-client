@@ -4,11 +4,10 @@ import '../styles/BatchForm.css'
 class BatchForm extends PureComponent {
   state={}
 
-
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.onSubmit(this.state)
-    
+
   }
 
   handleChange = (e) => {
