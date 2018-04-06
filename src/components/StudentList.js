@@ -88,9 +88,10 @@ class StudentList extends PureComponent {
         }
 
 
-        { batch.students.filter(student => student.evaluations[0]) &&
+
 
           <div className="percentage-bar">
+
 
             <div
               style={{width : this.percentageColor(batch.students, "green")}}
@@ -112,7 +113,7 @@ class StudentList extends PureComponent {
             </div>
           </div>
 
-          }
+
 
 
         <div className="student-list">
@@ -145,10 +146,10 @@ class StudentList extends PureComponent {
                  />
 
                  <div className="links">
-                  <Link to={ `/students/${student.id}` } className="view-link">View Student</Link>
+                  <Link to={ `/students/${student.id}` } className="view-link">View</Link>
 
                   <button onClick={ () => this.removeStudent(student.id) } className="remove-link">
-                    Remove Student
+                    Remove
                   </button>
                 </div>
 

@@ -68,6 +68,8 @@ class StudentInfo extends PureComponent {
           </div>
 
           <div className="info-flex">
+
+          
             <EvaluationHistory student={student}/>
 
             <NewEvaluation onSubmit={this.createEvaluation}/>
