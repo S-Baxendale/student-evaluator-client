@@ -95,18 +95,16 @@ class StudentList extends PureComponent {
 
    // Insert array of above students array as argument:
   randomStudent = (studentsArray) => {
-    const weight = [ 53, 28, 19 ]
-    var n = Math.floor(Math.random() * 100), amt=0;
+    const weight = [ 53, 81, 100 ]
+    const n = Math.floor(Math.random() * 100), amt=0;
     for(var i = 0 ; i < weight.length ;i++){
       //amt+=weight[i]; *alternative method
       //if(n<amt){
       if(n<weight[i]){
-        return studentsArray[i];
+        return studentsArray[i][0];
       }
     }
   }
-
-
 
 
   render() {
@@ -116,6 +114,7 @@ class StudentList extends PureComponent {
 
     return(
       <div>
+
 
       {
         console.log(
