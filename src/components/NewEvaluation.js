@@ -4,7 +4,8 @@ import { Redirect } from 'react-router-dom'
 
 class NewEvaluation extends PureComponent {
   state = {
-    redirectToNewPage: false
+    redirectToNewPage: false,
+    redirectToNext: false
   }
 
   handleSubmit = (e) => {
@@ -20,7 +21,11 @@ class NewEvaluation extends PureComponent {
     })
   }
 
-  handleRedirect
+  handleClick = (e) => {
+    e.preventDefault()
+    this.props.onSubmit(this.state)
+    this.setState({ redirectToNext: true })
+  }
 
 
   render() {
@@ -32,6 +37,12 @@ class NewEvaluation extends PureComponent {
      <Redirect to={`/batches/${batch.id}`} />
      )
    }
+
+   if (this.state.redirectToNext) {
+    return (
+    <Redirect to={`/batches/${batch.id}`} />
+    )
+  }
 
 
     return(
@@ -78,8 +89,8 @@ class NewEvaluation extends PureComponent {
 
         <button
           className="submit-evaluation"
-          type="submit">
-          Save & Next
+          onclick={this.handleClick}
+          >Save & Next
         </button>
       </form>
     )
