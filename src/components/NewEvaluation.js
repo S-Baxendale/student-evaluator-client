@@ -60,6 +60,12 @@ class NewEvaluation extends PureComponent {
           type="submit">
           Save
         </button>
+
+        <button
+          className="submit-evaluation"
+          type="submit">
+          Save & Next
+        </button>
       </form>
     )
   }

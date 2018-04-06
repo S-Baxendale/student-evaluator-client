@@ -22,14 +22,12 @@ img {
 }
 
 
-
 .percentage-bar {
   margin-bottom: 50px;
   margin-top: 150px;
   font-weight: bold;
   display: block;
   clear: both;
-
 }
 
 .percentage-green {
@@ -159,7 +157,7 @@ img {
   display: inline-block;
   margin: auto;
   float: left;
-  margin-left: 50px;
+  margin-left: 40px;
 }
 
 .new-student-btn:hover {

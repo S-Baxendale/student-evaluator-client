@@ -39,9 +39,8 @@
 }
 
 .submit-evaluation {
-  display: block;
+  display: inline-block;
   float: left;
-  clear: both;
   margin-left: 50px;
   margin-top: 30px;
   text-decoration: none;

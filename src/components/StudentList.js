@@ -132,7 +132,7 @@ class StudentList extends PureComponent {
 
         {
           this.state.edit &&
-          <StudentForm onSubmit={this.createStudent} />
+          <StudentForm onSubmit={this.createStudent} class="student-form"/>
         }
 
           <div className="percentage-bar">
