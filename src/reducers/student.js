@@ -10,10 +10,10 @@ export default function (state = null, action) {
       return {...state, evaluations: [...state.evaluations, action.payload]}
     case UPDATED_STUDENT:
       if(action.payload.id === state.id) {
-        return action.payload
+        return {...state, ...action.payload }
       }
       else return state
-      
+
     default:
       return state
   }

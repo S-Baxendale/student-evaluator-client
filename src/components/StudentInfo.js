@@ -46,14 +46,15 @@ class StudentInfo extends PureComponent {
   render() {
     const { student, batch, currentUser } = this.props
     if (!student) return null
+    if(!student.batch) return null
     return(
       <div>
         <div className="info-container">
           <div className="info-flex">
             <h1 className="student-title">{student.firstName} { student.lastName }</h1>
-
-            <p>Batch No. { student.batch.id } </p>
-
+            { student.batch.id &&
+              <p>Batch No. { student.batch.id } </p>
+            }
 
             <img src={ student.photo.indexOf("jpg") >= 0 || student.photo.indexOf("png") >= 0 ?
               student.photo : stockImage } alt="profile" className="profile"/>
@@ -69,15 +70,16 @@ class StudentInfo extends PureComponent {
 
           <div className="info-flex">
 
-          
+
             <EvaluationHistory student={student}/>
 
             <NewEvaluation onSubmit={this.createEvaluation}/>
           </div>
 
         </div>
-
+        { student.batch.id &&
         <Link to={ `/batches/${student.batch.id}` } >Back to Batch {student.batch.id}</Link>
+      }
       </div>
     )
   }
