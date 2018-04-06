@@ -17,9 +17,11 @@ class NewEvaluation extends PureComponent {
     })
   }
 
+  handleRedirect
 
 
   render() {
+    const { batch } = this.props
     const initialValues = this.props.initialValues || {}
     return(
 

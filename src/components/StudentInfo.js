@@ -71,9 +71,9 @@ class StudentInfo extends PureComponent {
           <div className="info-flex">
 
 
-            <EvaluationHistory student={student}/>
+            <EvaluationHistory student={student} />
 
-            <NewEvaluation onSubmit={this.createEvaluation}/>
+            <NewEvaluation onSubmit={this.createEvaluation} batch={student.batch}/>
           </div>
 
         </div>
