@@ -10,6 +10,7 @@
   margin: 30px;
   border: 2px solid #90addd;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .batch-header {

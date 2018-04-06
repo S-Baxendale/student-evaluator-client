@@ -18,6 +18,7 @@ img {
   margin: 30px;
   border: 2px solid #90addd;
   padding: 0;
+  box-sizing: border-box;
 
 }
 
@@ -120,6 +121,7 @@ img {
 
 .links {
   background-color: #90addd;
+  border: 2px solid #90addd;
   margin-bottom: -20px;
   height: 50px;
 }
@@ -192,4 +194,15 @@ img {
 
 .random-btn:focus {
   outline:0;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-decoration: none;
+  color: #90addd;
+  font-weight: bold;
+  border-bottom: 2px solid #90addd;
+  padding-bottom: 10px;
 }

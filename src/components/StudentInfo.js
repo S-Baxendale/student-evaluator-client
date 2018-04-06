@@ -78,7 +78,7 @@ class StudentInfo extends PureComponent {
 
         </div>
         { student.batch.id &&
-        <Link to={ `/batches/${student.batch.id}` } >Back to Batch {student.batch.id}</Link>
+        <Link to={ `/batches/${student.batch.id}` } className="back-link" >Back to Batch {student.batch.id}</Link>
       }
       </div>
     )
