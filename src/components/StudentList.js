@@ -71,14 +71,25 @@ class StudentList extends PureComponent {
        return  (Date.parse(b.date) - Date.parse(a.date));
      })
     )
-    //console.log(students)
     return students
    }
 
-   red = (sortedStudents) => {
-     const red = sortedStudents.filter(student => student.evaluations[0].color ==='green')
-     return red
+   redStudents = (sortedStudents) => {
+     const redStudents = sortedStudents.filter(student => student.evaluations[0].color === 'red')
+     return redStudents
    }
+
+   yellowStudents = (sortedStudents) => {
+     const yellowStudents = sortedStudents.filter(student => student.evaluations[0].color === 'yellow')
+     return yellowStudents
+   }
+
+   greenStudents = (sortedStudents) => {
+     const greenStudents = sortedStudents.filter(student => student.evaluations[0].color === 'green')
+     return greenStudents
+   }
+
+
 
 
   render() {
@@ -90,8 +101,11 @@ class StudentList extends PureComponent {
       <div>
 
       {
-        //console.log(this.sortEvaluations2(batch.students).filter(student => student.evaluations[0].color ==='yellow'))
-        console.log(this.red(this.sortEvaluations2(batch.students)))
+        console.log(this.redStudents(this.sortEvaluations2(batch.students)))
+      }
+
+      {
+        console.log(this.greenStudents(this.sortEvaluations2(batch.students)))
       }
 
 
