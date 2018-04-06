@@ -71,12 +71,14 @@ class StudentList extends PureComponent {
        return  (Date.parse(b.date) - Date.parse(a.date));
      })
     )
-    console.log(students)
+    //console.log(students)
     return students
    }
 
-
-
+   red = (sortedStudents) => {
+     const red = sortedStudents.filter(student => student.evaluations[0].color ==='green')
+     return red
+   }
 
 
   render() {
@@ -86,6 +88,14 @@ class StudentList extends PureComponent {
 
     return(
       <div>
+
+      {
+        //console.log(this.sortEvaluations2(batch.students).filter(student => student.evaluations[0].color ==='yellow'))
+        console.log(this.red(this.sortEvaluations2(batch.students)))
+      }
+
+
+
 
 
 
@@ -99,9 +109,6 @@ class StudentList extends PureComponent {
           this.state.edit &&
           <StudentForm onSubmit={this.createStudent} />
         }
-
-
-
 
           <div className="percentage-bar">
 
