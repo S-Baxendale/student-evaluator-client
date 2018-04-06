@@ -13,6 +13,10 @@ import '../styles/Student.css'
 
 const stockImage = 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
 
+// Weight array for randomStudent function"
+//const weight = [ 53, 28, 19 ]
+
+
 class StudentList extends PureComponent {
 
   state = {
@@ -61,17 +65,17 @@ class StudentList extends PureComponent {
     evaluations.sort(function(a, b) {
        return  (Date.parse(b.date) - Date.parse(a.date));
      })
-     console.log(evaluations[0].color)
      return evaluations
   }
 
 
   sortEvaluations2 = (students) => {
-    students.map(student => student.evaluations.sort(function(a, b) {
+    const evaluatedStudents = (students) ? students.filter(student => student.evaluations && student.evaluations.length > 0) : null
+    evaluatedStudents.map(student => student.evaluations.sort(function(a, b) {
        return  (Date.parse(b.date) - Date.parse(a.date));
      })
     )
-    return students
+    return evaluatedStudents
    }
 
    redStudents = (sortedStudents) => {
@@ -89,6 +93,19 @@ class StudentList extends PureComponent {
      return greenStudents
    }
 
+   // Insert array of above students array as argument:
+  randomStudent = (studentsArray) => {
+    const weight = [ 53, 28, 19 ]
+    var n = Math.floor(Math.random() * 100), amt=0;
+    for(var i = 0 ; i < weight.length ;i++){
+      //amt+=weight[i]; *alternative method
+      //if(n<amt){
+      if(n<weight[i]){
+        return studentsArray[i];
+      }
+    }
+  }
+
 
 
 
@@ -101,11 +118,23 @@ class StudentList extends PureComponent {
       <div>
 
       {
-        console.log(this.redStudents(this.sortEvaluations2(batch.students)))
+        console.log(
+          this.randomStudent(
+            [
+              this.redStudents(this.sortEvaluations2(batch.students)),
+              this.yellowStudents(this.sortEvaluations2(batch.students)),
+              this.greenStudents(this.sortEvaluations2(batch.students))
+            ])
+          )
+      }
+
+
+      {
+        //console.log(this.redStudents(this.sortEvaluations2(batch.students)))
       }
 
       {
-        console.log(this.greenStudents(this.sortEvaluations2(batch.students)))
+        //console.log(this.greenStudents(this.sortEvaluations2(batch.students)))
       }
 
 
