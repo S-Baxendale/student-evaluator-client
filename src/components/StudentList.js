@@ -101,7 +101,7 @@ class StudentList extends PureComponent {
       //amt+=weight[i]; *alternative method
       //if(n<amt){
       if(n<weight[i]){
-        return studentsArray[i][0];
+        return studentsArray[i][ Math.floor(Math.random() * studentsArray[i].length ) ];
       }
     }
   }
@@ -115,6 +115,10 @@ class StudentList extends PureComponent {
     return(
       <div>
 
+      {
+
+        console.log( Math.floor(Math.random() * 5) )
+      }
 
       {
         console.log(
