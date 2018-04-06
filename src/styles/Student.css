@@ -25,8 +25,10 @@ img {
 
 .percentage-bar {
   margin-bottom: 50px;
-  margin-top: 50px;
+  margin-top: 150px;
   font-weight: bold;
+  display: block;
+  clear: both;
 
 }
 
@@ -154,8 +156,10 @@ img {
   font-weight: bold;
   border: 2px solid #90addd;
   padding: 20px;
-  display: block;
+  display: inline-block;
   margin: auto;
+  float: left;
+  margin-left: 50px;
 }
 
 .new-student-btn:hover {
@@ -164,5 +168,30 @@ img {
 }
 
 .new-student-btn:focus {
+  outline:0;
+}
+
+.random-btn {
+  margin-top: 50px;
+  margin-bottom: 100px;
+  text-decoration: none;
+  color: #4d4e4f;
+  font-size: 20px;
+  font-weight: bold;
+  border: 2px solid #90addd;
+  padding: 20px;
+  margin: auto;
+  display: inline-block;
+  margin-right: 10px;
+  float: left;
+  margin-left: 20px;
+}
+
+.random-btn:hover {
+  background-color: #90addd;
+  color: white;
+}
+
+.random-btn:focus {
   outline:0;
 }

@@ -115,43 +115,20 @@ class StudentList extends PureComponent {
     return(
       <div>
 
+        <h1 className="batch-title">Batch #{batch.id}</h1>
 
-      {
-        console.log(
-          this.randomStudent(
-            [
-              this.redStudents(this.sortEvaluations2(batch.students)),
-              this.yellowStudents(this.sortEvaluations2(batch.students)),
-              this.greenStudents(this.sortEvaluations2(batch.students))
-            ])
-          )
-      }
-
-
-      {
-        //console.log(this.redStudents(this.sortEvaluations2(batch.students)))
-      }
-
-      {
-        //console.log(this.greenStudents(this.sortEvaluations2(batch.students)))
-      }
-
-
-
-
-
-
-        <h1>Batch #{batch.id}</h1>
+        <button onClick={this.toggleEdit} className="new-student-btn">Add a student</button>
 
         <Link to={ `/students/${this.randomStudent(
           [
             this.redStudents(this.sortEvaluations2(batch.students)),
             this.yellowStudents(this.sortEvaluations2(batch.students)),
             this.greenStudents(this.sortEvaluations2(batch.students))
-          ])}` }
-          className="random-btn">Ask A Question</Link>
+          ]
+        )}` }
+          className="random-btn"> Ask A Question </Link>
 
-        <button onClick={this.toggleEdit} className="new-student-btn">Add a student</button>
+
 
         {
           this.state.edit &&
