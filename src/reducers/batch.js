@@ -8,7 +8,7 @@ export default function (state=null, action) {
     case CREATED_STUDENT:
       return {...state, students: [...state.students, action.payload]}
       case REMOVED_STUDENT:
-        return  { ...state, students: [...state.students, state.students.filter(student => student.id !== action.payload)] }
+        return  { ...state, students: [...state.students.filter(student => student.id !== action.payload)] }
     default:
       return state
     }

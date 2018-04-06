@@ -32,7 +32,7 @@ class BatchList extends PureComponent {
 
   render() {
     const { batches, currentUser } = this.props
-
+    
     return(
       <div>
 
@@ -76,6 +76,11 @@ class BatchList extends PureComponent {
         </div>
 
 
+        { !currentUser &&
+          <div>
+            <p>Please <Link to="/login">login</Link></p>
+            </div>
+        }
 
       </div>
 
