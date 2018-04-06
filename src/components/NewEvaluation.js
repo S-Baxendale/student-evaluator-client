@@ -1,13 +1,16 @@
 import React, { PureComponent} from 'react'
 import '../styles/NewEvaluation.css'
+import { Redirect } from 'react-router-dom'
 
 class NewEvaluation extends PureComponent {
-  state={}
+  state = {
+    redirectToNewPage: false
+  }
 
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.onSubmit(this.state)
-
+    this.setState({ redirectToNewPage: true })
   }
 
   handleChange = (e) => {
@@ -23,7 +26,17 @@ class NewEvaluation extends PureComponent {
   render() {
     const { batch } = this.props
     const initialValues = this.props.initialValues || {}
+
+    if (this.state.redirectToNewPage) {
+     return (
+     <Redirect to={`/batches/${batch.id}`} />
+     )
+   }
+
+
     return(
+
+
 
       <form onSubmit={this.handleSubmit}>
 
