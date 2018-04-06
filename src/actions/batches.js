@@ -8,11 +8,11 @@ export const CREATED_BATCH = 'CREATED_BATCH'
 
 
 export const fetchAllBatches = () => (dispatch, getState) => {
-  //const state = getState()
-  //const jwt = state.currentUser.jwt
+  const state = getState()
+  const jwt = state.currentUser.jwt
   request
     .get(`${baseUrl}/batches`)
-   //.set('Authorization', `Bearer ${jwt}`)
+    .set('Authorization', `Bearer ${jwt}`)
     .then(response => dispatch({
       type: FETCHED_ALL_BATCHES,
       payload: response.body
@@ -33,9 +33,12 @@ export const createBatch = (batch) => (dispatch, getState) => {
     }))
 }
 
-export const fetchBatch = (batchId) => (dispatch) => {
+export const fetchBatch = (batchId) => (dispatch, getState) => {
+  const state = getState()
+  const jwt = state.currentUser.jwt
   request
     .get(`${baseUrl}/batches/${batchId}`)
+    .set('Authorization', `Bearer ${jwt}`)
     .then(response => dispatch({
       type: FETCH_BATCH,
       payload: response.body

@@ -14,3 +14,5 @@ const weight = [0.19, 0.28, 0.53]
  // If <= 19 select arrays[0]
  // if > 19 <= 28 select arrays[1]
  // if >= 52 slect arrays[2]
+
+console.log(`Random student Id: ${studentsArray[i][ Math.floor(Math.random() * studentsArray[i].length ) ].id}`)

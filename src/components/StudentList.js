@@ -44,13 +44,11 @@ class StudentList extends PureComponent {
 
   createStudent = (student, batchId) => {
     this.props.createStudent(student, this.props.match.params.id)
-    console.log(student)
-    console.log(batchId)
+
   }
 
   removeStudent = (studentId) => {
     this.props.removeStudent(studentId)
-    console.log('button clicked')
   }
 
   percentageColor(students, color) {
@@ -80,31 +78,44 @@ class StudentList extends PureComponent {
 
    redStudents = (sortedStudents) => {
      const redStudents = sortedStudents.filter(student => student.evaluations[0].color === 'red')
-     return redStudents
+
+       return redStudents
+
    }
 
    yellowStudents = (sortedStudents) => {
      const yellowStudents = sortedStudents.filter(student => student.evaluations[0].color === 'yellow')
-     return yellowStudents
+
+       return yellowStudents
+
    }
 
    greenStudents = (sortedStudents) => {
      const greenStudents = sortedStudents.filter(student => student.evaluations[0].color === 'green')
-     return greenStudents
+
+       return greenStudents
+
    }
 
    // Insert array of above students array as argument:
   randomStudent = (studentsArray) => {
     const weight = [ 53, 81, 100 ]
-    const n = Math.floor(Math.random() * 100), amt=0;
-    for(var i = 0 ; i < weight.length ;i++){
-      //amt+=weight[i]; *alternative method
-      //if(n<amt){
+    const n = Math.floor(Math.random() * 100)
+
+    for(var i = 0 ; i < weight.length; i++){
       if(n < weight[i]){
-        return studentsArray[i][ Math.floor(Math.random() * studentsArray[i].length ) ].id;
+      //  console.log(studentsArray[i])
+        if (studentsArray[i].length > 0) {
+          
+          return studentsArray[i][ Math.floor(Math.random() * studentsArray[i].length ) ].id
+        } else {
+          return null
+        }
       }
     }
   }
+
+
 
 
   render() {
