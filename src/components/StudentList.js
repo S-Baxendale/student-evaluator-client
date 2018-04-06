@@ -66,6 +66,17 @@ class StudentList extends PureComponent {
   }
 
 
+  sortEvaluations2 = (students) => {
+    students.map(student => student.evaluations.sort(function(a, b) {
+       return  (Date.parse(b.date) - Date.parse(a.date));
+     })
+    )
+    console.log(students)
+    return students
+   }
+
+
+
 
 
   render() {
@@ -75,6 +86,8 @@ class StudentList extends PureComponent {
 
     return(
       <div>
+
+
 
         <h1>Batch #{batch.id}</h1>
 
@@ -92,25 +105,27 @@ class StudentList extends PureComponent {
 
           <div className="percentage-bar">
 
-
             <div
-              style={{width : this.percentageColor(batch.students, "green")}}
+              style={{width : this.percentageColor(this.sortEvaluations2(batch.students), "green")}}
               className="percentage-green"
             >
-              {this.percentageColor(batch.students, "green")}
+              {this.percentageColor(this.sortEvaluations2(batch.students), "green")}
             </div>
+
             <div
-              style={{width : this.percentageColor(batch.students, "yellow")}}
+              style={{width : this.percentageColor(this.sortEvaluations2(batch.students), "yellow")}}
               className="percentage-yellow"
             >
-              {this.percentageColor(batch.students, "yellow")}
+              {this.percentageColor(this.sortEvaluations2(batch.students), "yellow")}
             </div>
+
             <div
-              style={{width : this.percentageColor(batch.students, "red")}}
+              style={{width : this.percentageColor(this.sortEvaluations2(batch.students), "red")}}
               className="percentage-red"
             >
-              {this.percentageColor(batch.students, "red")}
+              {this.percentageColor(this.sortEvaluations2(batch.students), "red")}
             </div>
+
           </div>
 
 
