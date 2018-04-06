@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import LoginForm from './LoginForm'
 import { Redirect } from 'react-router-dom'
 import { login } from '../actions/users'
+import '../styles/LoginForm.css'
 
 class LoginPage extends PureComponent {
 
@@ -19,7 +20,7 @@ class LoginPage extends PureComponent {
 
     return(
       <div>
-        <h1>Login</h1>
+        <h1 class="login-title">Welcome</h1>
 
         <LoginForm onSubmit={this.handleSubmit} />
 
