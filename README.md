@@ -37,7 +37,6 @@ I'm running a docker container (port 5432) with a Postgres DB. A local DB should
 ### Build with:
 * [React](https://reactjs.org/) - The web framework used for frontend
 * [Redux](https://redux.js.org) - State manager for React
-* [Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/) - Styling
 * [TypeOrm](https://github.com/typeorm) - TypeScript focused ORM for the backend.  
 
 ### Authors
